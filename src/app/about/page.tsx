@@ -6,25 +6,25 @@ const team = [
     {
         name: "Rajesh Sharma",
         role: "Founder & CEO",
-        image: "https://images.unsplash.com/photo-1607346256330-dee7af15f7c5?w=400&q=80",
+        image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80",
         bio: "20+ years in luxury real estate",
     },
     {
         name: "Priya Kapoor",
         role: "Head of Sales",
-        image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=400&q=80",
+        image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80",
         bio: "Expert in high-end property negotiations",
     },
     {
         name: "Amit Patel",
         role: "Property Consultant",
-        image: "https://images.unsplash.com/photo-1618568221633-0a45dd10ecf7?w=400&q=80",
+        image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80",
         bio: "Specializing in premium properties",
     },
     {
         name: "Sneha Reddy",
         role: "Investment Advisor",
-        image: "https://images.unsplash.com/photo-1611432579699-484f7990b127?w=400&q=80",
+        image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80",
         bio: "Real estate investment strategist",
     },
 ];
