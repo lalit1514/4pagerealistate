@@ -84,18 +84,12 @@ export default function Navbar() {
                 </button>
             </nav>
 
-            {/* Mobile Menu Overlay - Click to close */}
-            {isMobileMenuOpen && (
-                <div
-                    className={styles.overlay}
-                    onClick={closeMobileMenu}
-                    aria-hidden="true"
-                />
-            )}
-
-            {/* Mobile Menu */}
-            <div className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.open : ""}`}>
-                <ul className={styles.mobileNavLinks}>
+            {/* Mobile Menu - Click anywhere to close */}
+            <div
+                className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.open : ""}`}
+                onClick={closeMobileMenu}
+            >
+                <ul className={styles.mobileNavLinks} onClick={(e) => e.stopPropagation()}>
                     {navLinks.map((link, index) => (
                         <li
                             key={link.href}
