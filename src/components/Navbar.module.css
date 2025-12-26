@@ -171,22 +171,23 @@
     display: none;
     position: fixed;
     top: 0;
-    left: 0;
     right: 0;
-    bottom: 0;
+    width: 80%;
+    max-width: 320px;
+    height: 100vh;
     background-color: var(--color-white);
     padding: 100px var(--container-padding) var(--space-xl);
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    opacity: 0;
-    visibility: hidden;
-    transition: all var(--transition-base);
+    justify-content: flex-start;
+    z-index: 999;
+    transform: translateX(100%);
+    transition: transform var(--transition-base);
+    box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
 }
 
 .mobileMenu.open {
-    opacity: 1;
-    visibility: visible;
+    transform: translateX(0);
 }
 
 .mobileNavLinks {
