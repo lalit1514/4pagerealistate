@@ -79,6 +79,7 @@
     letter-spacing: -0.02em;
     display: flex;
     gap: var(--space-xs);
+    color: #1a1a2e;
 }
 
 .logoAccent {
@@ -172,61 +173,64 @@
     position: fixed;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #ffffff;
-    padding: 100px var(--container-padding) var(--space-xl);
+    width: 100vw;
+    height: 100vh;
+    background: #ffffff;
+    padding-top: 100px;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     z-index: 9999;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+    overflow-y: auto;
 }
 
 .mobileMenu.open {
-    opacity: 1;
-    visibility: visible;
+    display: flex;
 }
 
 .mobileNavLinks {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--space-xl);
-    margin-bottom: var(--space-2xl);
+    gap: 40px;
+    margin-bottom: 40px;
+    list-style: none;
+    padding: 0;
 }
 
 .mobileNavLinks li {
-    opacity: 0;
-    animation: fadeInUp 0.5s ease forwards;
-}
-
-.mobileMenu.open .mobileNavLinks li {
-    opacity: 1;
+    list-style: none;
 }
 
 .mobileNavLink {
-    font-size: var(--font-size-2xl);
+    font-size: 28px;
     font-weight: 600;
+    color: #1a1a2e;
+    text-decoration: none;
     letter-spacing: -0.02em;
-    position: relative;
+}
+
+.mobileNavLink:hover {
+    color: #c9a227;
 }
 
 .mobileNavLink.active {
-    color: var(--color-accent);
+    color: #c9a227;
 }
 
 .mobileCta {
-    padding: var(--space-md) var(--space-2xl);
-    background-color: var(--color-accent);
-    color: var(--color-white);
-    font-size: var(--font-size-base);
+    padding: 16px 48px;
+    background-color: #c9a227;
+    color: #ffffff;
+    font-size: 16px;
     font-weight: 600;
-    border-radius: var(--radius-sm);
+    border-radius: 4px;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+.mobileCta:hover {
+    background-color: #b8941f;
 }
 
 /* Responsive */
@@ -238,10 +242,6 @@
     }
 
     .menuButton {
-        display: flex;
-    }
-
-    .mobileMenu {
         display: flex;
     }
 }
