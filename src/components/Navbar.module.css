@@ -16,12 +16,50 @@
     padding: var(--space-sm) 0;
 }
 
+/* Dark header for non-home pages (before scroll) */
+.header.dark {
+    background-color: var(--color-primary);
+}
+
+.header.dark .logo span:not(.logoAccent) {
+    color: var(--color-white);
+}
+
+.header.dark .navLink {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.header.dark .navLink:hover,
+.header.dark .navLink.active {
+    color: var(--color-accent);
+}
+
+.header.dark .menuButton span {
+    background-color: var(--color-white);
+}
+
 /* Ensure header is always visible on mobile when scrolled */
 @media (max-width: 768px) {
     .header.scrolled {
         background-color: var(--color-white);
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
+
+    .header.dark {
+        background-color: var(--color-primary);
+    }
+}
+
+/* Overlay for closing mobile menu */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    cursor: pointer;
 }
 
 .nav {
@@ -31,6 +69,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
+    z-index: 1001;
 }
 
 .logo {

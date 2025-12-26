@@ -16,6 +16,7 @@ export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const pathname = usePathname();
+    const isHomePage = pathname === "/";
 
     useEffect(() => {
         const handleScroll = () => {
@@ -40,8 +41,12 @@ export default function Navbar() {
         }
     }, [isMobileMenuOpen]);
 
+    const closeMobileMenu = () => {
+        setIsMobileMenuOpen(false);
+    };
+
     return (
-        <header className={`${styles.header} ${isScrolled ? styles.scrolled : ""}`}>
+        <header className={`${styles.header} ${isScrolled ? styles.scrolled : ""} ${!isHomePage && !isScrolled ? styles.dark : ""}`}>
             <nav className={styles.nav}>
                 <Link href="/" className={styles.logo}>
                     <span className={styles.logoAccent}>LUXE</span>
@@ -79,6 +84,15 @@ export default function Navbar() {
                 </button>
             </nav>
 
+            {/* Mobile Menu Overlay - Click to close */}
+            {isMobileMenuOpen && (
+                <div
+                    className={styles.overlay}
+                    onClick={closeMobileMenu}
+                    aria-hidden="true"
+                />
+            )}
+
             {/* Mobile Menu */}
             <div className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.open : ""}`}>
                 <ul className={styles.mobileNavLinks}>
@@ -91,16 +105,18 @@ export default function Navbar() {
                                 href={link.href}
                                 className={`${styles.mobileNavLink} ${pathname === link.href ? styles.active : ""
                                     }`}
+                                onClick={closeMobileMenu}
                             >
                                 {link.label}
                             </Link>
                         </li>
                     ))}
                 </ul>
-                <Link href="/contact" className={styles.mobileCta}>
+                <Link href="/contact" className={styles.mobileCta} onClick={closeMobileMenu}>
                     Get in Touch
                 </Link>
             </div>
         </header>
     );
 }
+
