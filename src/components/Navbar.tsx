@@ -84,12 +84,15 @@ export default function Navbar() {
                 </button>
             </nav>
 
-            {/* Mobile Menu - Click anywhere to close */}
+            {/* Overlay - Click to close drawer */}
             <div
-                className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.open : ""}`}
+                className={`${styles.overlay} ${isMobileMenuOpen ? styles.open : ""}`}
                 onClick={closeMobileMenu}
-            >
-                <ul className={styles.mobileNavLinks} onClick={(e) => e.stopPropagation()}>
+            />
+
+            {/* Mobile Menu Drawer */}
+            <div className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.open : ""}`}>
+                <ul className={styles.mobileNavLinks}>
                     {navLinks.map((link, index) => (
                         <li
                             key={link.href}

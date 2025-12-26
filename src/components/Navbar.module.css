@@ -167,25 +167,49 @@
     transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* Mobile Menu */
-.mobileMenu {
-    display: none;
+/* Mobile Menu Overlay */
+.overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: #ffffff;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9998;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.overlay.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Mobile Menu Drawer */
+.mobileMenu {
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 80%;
+    max-width: 320px;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     padding-top: 100px;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     z-index: 9999;
-    overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
 }
 
 .mobileMenu.open {
-    display: flex;
+    transform: translateX(0);
 }
 
 .mobileNavLinks {
@@ -200,6 +224,58 @@
 
 .mobileNavLinks li {
     list-style: none;
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Staggered animation for menu items */
+.mobileMenu.open .mobileNavLinks li:nth-child(1) {
+    opacity: 1;
+    transform: translateX(0);
+    transition-delay: 0.1s;
+}
+
+.mobileMenu.open .mobileNavLinks li:nth-child(2) {
+    opacity: 1;
+    transform: translateX(0);
+    transition-delay: 0.2s;
+}
+
+.mobileMenu.open .mobileNavLinks li:nth-child(3) {
+    opacity: 1;
+    transform: translateX(0);
+    transition-delay: 0.3s;
+}
+
+.mobileMenu.open .mobileNavLinks li:nth-child(4) {
+    opacity: 1;
+    transform: translateX(0);
+    transition-delay: 0.4s;
+}
+
+.mobileCta {
+    padding: 16px 48px;
+    background-color: #c9a227;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 4px;
+    text-decoration: none;
+    margin-top: 20px;
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 0.4s ease, transform 0.4s ease, background-color 0.3s ease;
+}
+
+.mobileCta:hover {
+    background-color: #b8941f;
+}
+
+.mobileMenu.open .mobileCta {
+    opacity: 1;
+    transform: translateX(0);
+    transition-delay: 0.5s;
 }
 
 .mobileNavLink {
@@ -216,21 +292,6 @@
 
 .mobileNavLink.active {
     color: #c9a227;
-}
-
-.mobileCta {
-    padding: 16px 48px;
-    background-color: #c9a227;
-    color: #ffffff;
-    font-size: 16px;
-    font-weight: 600;
-    border-radius: 4px;
-    text-decoration: none;
-    margin-top: 20px;
-}
-
-.mobileCta:hover {
-    background-color: #b8941f;
 }
 
 /* Responsive */
