@@ -195,9 +195,7 @@
     width: 80%;
     max-width: 320px;
     height: 100vh;
-    background: rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: #ffffff;
     padding-top: 100px;
     flex-direction: column;
     align-items: center;
